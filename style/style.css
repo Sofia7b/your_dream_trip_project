@@ -208,6 +208,7 @@ header .search-bar-container label:hover {
 .login-form-container form .btn {
   display: block;
   width: 100%;
+  text-transform: none;
 }
 
 .login-form-container form p {

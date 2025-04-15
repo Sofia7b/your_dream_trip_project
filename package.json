@@ -1,0 +1,27 @@
+{
+  "name": "your-dream-trip",
+  "version": "1.0.0",
+  "description": "Інтерактивний сайт-помічник для пошуку ідеальної подорожі за інтересами та настроєм.",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "echo 'У розробці...'"
+  },
+  "author": "Софія",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "trip",
+    "quiz",
+    "recommendation",
+    "подорож",
+    "туризм"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sofia7b/your_dream_trip_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sofia7b/your_dream_trip_project/issues"
+  },
+  "homepage": "https://sofia7b.github.io/your_dream_trip_project/"
+}
