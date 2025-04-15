@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/quiz.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>travel quiz</title>
+  </head>
+  <body>
+    <header>
+      <div id="menu-bar" class="fas fa-bars"></div>
+
+      <a href="#" class="logo"><span>T</span>ravel</a>
+
+      <nav class="navbar">
+        <a href="#home">Головна</a>
+        <a href="#book">Бронювання</a>
+        <a href="#packages">Пакети</a>
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#review">Відгуки</a>
+        <a href="#contact">Контакти</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
+
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="Пошук..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </header>
+
+    <!-- Контейнер форми входу -->
+    <div class="login-form-container">
+      <i class="fas fa-times" id="form-close"></i>
+
+      <form action="">
+        <h3>Увійти</h3>
+        <input
+          type="email"
+          class="box"
+          placeholder="Введіть вашу електронну пошту"
+        />
+        <input type="password" class="box" placeholder="Введіть ваш пароль" />
+        <input type="submit" value="Увійти зараз" class="btn" />
+        <input type="checkbox" id="remember" />
+        <label for="remember">Запам'ятати мене</label>
+        <p>Забули пароль?<a href="#">Натисніть тут</a></p>
+        <p>Ще немає акаунта?<a href="#">Зареєструйтесь зараз</a></p>
+      </form>
+    </div>
+
+    <!-- Контейнер з індикаторами слайдера -->
+    <div class="slider-indicator" id="indicator"></div>
+
+    <!-- Квіз -->
+    <div class="quiz-container" id="quiz">
+      <p id="question" class="question-text">Який тип локації вам ближчий?</p>
+      <div id="answers" class="answers-quiz"></div>
+      <div id="number" class="number-numeration"></div>
+    </div>
+
+    <div class="restart-container">
+      <button id="restart-btn" style="display: none" class="restart-btn">
+        почати спочатку
+      </button>
+    </div>
+
+    <script src="/js/quiz_with_generator.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

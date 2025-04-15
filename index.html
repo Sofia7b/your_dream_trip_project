@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>travel quiz</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
+    <!-- header section starts  -->
+
+    <header>
+      <div id="menu-bar" class="fas fa-bars"></div>
+
+      <a href="#" class="logo"><span>T</span>ravel</a>
+
+      <nav class="navbar">
+        <a href="#home">Головна</a>
+        <a href="#book">Бронювання</a>
+        <a href="#packages">Пакети турів</a>
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#review">Відгуки</a>
+        <a href="#contact">Контакти</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
+
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="Пошук..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- login form container  -->
+
+    <div class="login-form-container">
+      <i class="fas fa-times" id="form-close"></i>
+
+      <form action="">
+        <h3>Увійти</h3>
+        <input
+          type="email"
+          class="box"
+          placeholder="Введіть вашу електронну пошту"
+        />
+        <input type="password" class="box" placeholder="Введіть ваш пароль" />
+        <input type="submit" value="Увійти зараз" class="btn" />
+        <input type="checkbox" id="remember" />
+        <label for="remember">Запам'ятати мене</label>
+        <p>Забули пароль?<a href="#">Натисніть тут</a></p>
+        <p>Ще немає акаунта?<a href="#">Зареєструйтесь зараз</a></p>
+      </form>
+    </div>
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+      <div class="content">
+        <h3>Пригоди — це те, заради чого варто жити</h3>
+        <p>Відкривай нові місця з нами</p>
+        <a href="quiz.html" class="btn">Start Quiz</a>
+      </div>
+
+      <div class="controls">
+        <span class="vid-btn active" data-src="images/vid-1.mp4"></span>
+        <span class="vid-btn" data-src="images/vid-2.mp4"></span>
+        <span class="vid-btn" data-src="images/vid-3.mp4"></span>
+        <span class="vid-btn" data-src="images/vid-4.mp4"></span>
+        <span class="vid-btn" data-src="images/vid-5.mp4"></span>
+      </div>
+
+      <div class="video-container">
+        <video
+          src="images/vid-1.mp4"
+          id="video-slider"
+          loop
+          autoplay
+          muted
+        ></video>
+      </div>
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- book section starts  -->
+
+    <section class="book" id="book">
+      <h1 class="heading">
+        <span>з</span>
+        <span>а</span>
+        <span>б</span>
+        <span>р</span>
+        <span>о</span>
+        <span>н</span>
+        <span>ю</span>
+        <span>в</span>
+        <span>а</span>
+        <span>т</span>
+        <span>и</span>
+        <span class="space"></span>
+        <span>з</span>
+        <span>а</span>
+        <span>р</span>
+        <span>а</span>
+        <span>з</span>
+      </h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="images/book-img.svg" alt="" />
+        </div>
+
+        <form action="">
+          <div class="inputBox">
+            <h3>Куди</h3>
+            <input type="text" placeholder="назва місця" />
+          </div>
+          <div class="inputBox">
+            <h3>Скільки</h3>
+            <input type="number" placeholder="кількість гостей" />
+          </div>
+          <div class="inputBox">
+            <h3>Прибуття</h3>
+            <input type="date" />
+          </div>
+          <div class="inputBox">
+            <h3>Відбуття</h3>
+            <input type="date" />
+          </div>
+          <input type="submit" class="btn" value="Забронювати" />
+        </form>
+      </div>
+    </section>
+
+    <!-- book section ends -->
+
+    <!-- packages section starts  -->
+
+    <section class="packages" id="packages">
+      <h1 class="heading">
+        <span>т</span>
+        <span>у</span>
+        <span>р</span>
+        <span>и</span>
+      </h1>
+
+      <div class="box-container">
+        <div class="box">
+          <img src="images/p-1.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Туреччина</h3>
+            <p>
+              Відчуй дух історії та східної чарівності у Туреччині — країні
+              контрастів, де мечеті, базари та морські пейзажі створюють
+              незабутні враження.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="price">$420<span>$630</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="images/p-2.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Гаваї</h3>
+            <p>
+              Гаваї — це рай на землі з бірюзовими хвилями, пальмами та
+              атмосферою вічного літа. Ідеально для романтики або пригод!
+              Бронюйте прямо зараз!
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="price">$878 <span>$1150</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="images/p-3.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Сидней</h3>
+            <p>
+              Сідней — сучасний мегаполіс із легендарною оперою, океанськими
+              пляжами та яскравим нічним життям. Відчуй Австралію на повну!
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="price">$963<span>$1053</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="images/p-4.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Кокс Базар-Бангладеш</h3>
+            <p>
+              Кокс-Базар — найдовший пляж у світі з м’яким піском та теплим
+              океаном. Ідеальне місце для спокою, моря та сонячних заходів.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="price">$500<span>$645</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="images/p-5.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Токіо</h3>
+            <p>
+              Токіо — це майбутнє, яке настало вже сьогодні: неонові вогні,
+              ультрасучасні технології, та неймовірна кухня.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="price">$680<span>$743</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="images/p-6.jpg" alt="" />
+          <div class="content">
+            <h3><i class="fas fa-map-marker-alt"></i>Єгипет</h3>
+            <p>
+              Єгипет — країна фараонів, пірамід і вічного сонця. Відчуй магію
+              древньої історії серед пустель.
+            </p>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="price">$452<span>$520</span></div>
+            <a href="#" class="btn">забронювати</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- packages section ends -->
+
+    <!-- services section starts  -->
+
+    <section class="services" id="services">
+      <h1 class="heading">
+        <span>п</span>
+        <span>о</span>
+        <span>с</span>
+        <span>л</span>
+        <span>у</span>
+        <span>г</span>
+        <span>и</span>
+      </h1>
+
+      <div class="box-container">
+        <div class="box">
+          <i class="fas fa-hotel"></i>
+          <h3>Доступні готелі</h3>
+          <p>
+            Наші готелі пропонують комфортне розміщення за доступними цінами.
+            Незалежно від того, чи ви подорожуєте бізнесом, чи відпочиваєте з
+            родиною, ми забезпечимо вам затишок і зручності для приємного
+            перебування.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-utensils"></i>
+          <h3>Їжа та напої</h3>
+          <p>
+            Насолоджуйтесь смачними стравами та різноманітними напоями в наших
+            ресторанах і кафе. Від сніданку до вечері ми пропонуємо широкий
+            вибір страв на будь-який смак.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-bullhorn"></i>
+          <h3>Посібник з безпеки</h3>
+          <p>
+            Ми піклуємось про вашу безпеку під час подорожей. Ознайомтеся з
+            нашим посібником, щоб отримати корисні поради щодо безпеки на
+            дорогах, у готелях і на курортах.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-globe-asia"></i>
+          <h3>Навколо світу</h3>
+          <p>
+            Відправляйтеся в захоплюючі подорожі по всьому світу! Ми пропонуємо
+            вам великий вибір напрямків, які підійдуть для будь-якого бюджету.
+            Від екзотичних пляжів до культурних столиць — обирайте свою ідеальну
+            пригоду!
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-plane"></i>
+          <h3>Пригоди</h3>
+          <p>
+            Не бійтеся випробувати нові емоції! Від активного відпочинку до
+            екстремальних пригод — ми пропонуємо безліч варіантів для тих, хто
+            шукає нові враження та незабутні миті.
+          </p>
+        </div>
+        <div class="box">
+          <i class="fas fa-hiking"></i>
+          <h3>Швидші подорожі</h3>
+          <p>
+            З нашими послугами швидкого пересування ви зможете досягати ваших
+            цілей без зайвих затримок. Спеціальні маршрути, комфортні
+            транспортні засоби та сучасні технології.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- services section ends -->
+
+    <!-- gallery section starts  -->
+
+    <section class="gallery" id="gallery">
+      <h1 class="heading">
+        <span>г</span>
+        <span>а</span>
+        <span>л</span>
+        <span>е</span>
+        <span>р</span>
+        <span>е</span>
+        <span>я</span>
+      </h1>
+
+      <div class="box-container">
+        <div class="box">
+          <img src="images/g-1.jpg" alt="" />
+          <div class="content">
+            <h3>Швейцарія</h3>
+            <p>
+              Вражаючі альпійські ландшафти, чарівні озера. Це місце, де кожен
+              куточок захоплює своєю красою.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%A8%D0%B2%D0%B5%D0%B9%D1%86%D0%B0%D1%80%D1%96%D1%8F"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-2.jpg" alt="" />
+          <div class="content">
+            <h3>Пхукет</h3>
+            <p>
+              Тропічний рай, де пальми, білі пляжі та кришталево чисте море.
+              Ідеальне місце для відпочинку і релаксації.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%9F%D1%85%D1%83%D0%BA%D0%B5%D1%82"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-3.jpg" alt="" />
+          <div class="content">
+            <h3>Каппадокія</h3>
+            <p>
+              Дивовижні скелясті формації та мандрівка на повітряних кулях. Не
+              пропустіть можливість!
+            </p>
+            <a href="https://mandry.club/kurorty/kappadokiya/" class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-4.jpg" alt="" />
+          <div class="content">
+            <h3>Греція</h3>
+            <p>
+              Давня історія, мальовничі острови і блакитне море — ідеальне місце
+              для культурного та пляжного відпочинку.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%93%D1%80%D0%B5%D1%86%D1%96%D1%8F"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-5.jpg" alt="" />
+          <div class="content">
+            <h3>Домінікана</h3>
+            <p>
+              Райські пляжі, неймовірно тепле море і чудова природа. Це місце
+              для тих, хто шукає спокій та гармонію.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%94%D0%BE%D0%BC%D1%96%D0%BD%D1%96%D0%BA%D0%B0%D0%BD%D0%B0"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-6.jpg" alt="" />
+          <div class="content">
+            <h3>Нідерланди</h3>
+            <p>
+              Містечка з каналами, квіткові поля та захоплюючі музеї. Ідеальне
+              місце для подорожей!
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%9D%D1%96%D0%B4%D0%B5%D1%80%D0%BB%D0%B0%D0%BD%D0%B4%D0%B8"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-7.jpg" alt="" />
+          <div class="content">
+            <h3>Канада</h3>
+            <p>
+              Безкраї ліси, гірські пейзажі та мегаполіси, де з'єднуються
+              природна краса та сучасність.
+            </p>
+            <a href="https://skybooking.ua/country/canada/" class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-8.jpg" alt="" />
+          <div class="content">
+            <h3>Балі</h3>
+            <p>
+              Острів мрії для серферів і шукачів духовного спокою. Тут ви
+              знайдете безліч зелених рисових полів та чудових пляжів.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%91%D0%B0%D0%BB%D1%96"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+        <div class="box">
+          <img src="images/g-9.jpg" alt="" />
+          <div class="content">
+            <h3>Німеччина</h3>
+            <p>
+              Величні замки та багатий культурний спадок. Ідеальний напрямок для
+              любителів історії та архітектури.
+            </p>
+            <a
+              href="https://mandry.club/?s=%D0%9D%D1%96%D0%BC%D0%B5%D1%87%D1%87%D0%B8%D0%BD%D0%B0"
+              class="btn"
+              >Дізнатися більше</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- gallery section ends -->
+
+    <!-- review section starts  -->
+
+    <section class="review" id="review">
+      <h1 class="heading">
+        <span>в</span>
+        <span>і</span>
+        <span>д</span>
+        <span>г</span>
+        <span>у</span>
+        <span>к</span>
+        <span>и</span>
+      </h1>
+
+      <div class="swiper-container review-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="images/Team-4.svg" alt="" />
+              <h3>Ігор Коваль</h3>
+              <p>
+                Неймовірні враження від подорожі до Греції! Дуже сподобались
+                готелі – чисті, комфортні, з чудовим сервісом. Екскурсії були
+                насичені та захопливі, особливо поїздка на Санторіні та Афіни.
+                Організація на найвищому рівні – від трансферу до розкладу
+                заходів. Гіди професійні й доброзичливі, завжди відповідали на
+                всі запитання.
+              </p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="images/Team-6.svg" alt="" />
+              <h3>Олена Савчук</h3>
+              <p>
+                Подорож була організована бездоганно! Все відповідало опису, а
+                сервіс – на найвищому рівні. Обов’язково звернуся ще!
+              </p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="images/Team-3.svg" alt="" />
+              <h3>Андрій Б.</h3>
+              <p>
+                Все було організовано на відмінно! Відпочивав у Домінікані, і ця
+                поїздка перевершила всі очікування. Чудові пляжі, тепле море та
+                бездоганний сервіс зробили мій відпочинок незабутнім.
+                Надзвичайно задоволений поїздкою – рекомендую усім!
+              </p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="box">
+              <img src="images/Team-5.svg" alt="" />
+              <h3>Наталія</h3>
+              <p>
+                Загалом усе сподобалось, але були деякі неточності в розкладі
+                екскурсій. Готель хороший, персонал привітний. Думаю, ще
+                звернусь, але хотілося б більше чіткості в організації.
+              </p>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- review section ends -->
+
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+      <h1 class="heading">
+        <span>к</span>
+        <span>о</span>
+        <span>н</span>
+        <span>т</span>
+        <span>а</span>
+        <span>к</span>
+        <span>т</span>
+        <span>и</span>
+      </h1>
+
+      <div class="row">
+        <div class="image">
+          <img src="images/contact-img.svg" alt="" />
+        </div>
+
+        <form action="">
+          <div class="inputBox">
+            <input type="text" placeholder="iм’я" />
+            <input type="email" placeholder="електронна пошта" />
+          </div>
+          <div class="inputBox">
+            <input type="number" placeholder="кількість осіб" />
+            <input type="text" placeholder="куди летіти" />
+          </div>
+          <textarea
+            placeholder="повідомлення..."
+            name=""
+            id=""
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" class="btn" value="Надіслати" />
+        </form>
+      </div>
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- brand section  -->
+    <section class="brand-container">
+      <div class="swiper-container brand-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="images/2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="images/3.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="images/4.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="images/5.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="images/6.jpg" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer section  -->
+
+    <footer class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3 class="about_us">Про нас</h3>
+          <p>
+            Наш сайт — це платформа для пошуку туристичних напрямків, вигідних
+            турів та натхнення для подорожей. Ми прагнемо зробити планування
+            поїздок простим, зручним і приємним для кожного.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Місця розташування філій</h3>
+          <a href="#">Київ</a>
+          <a href="#">Дніпро</a>
+          <a href="#">Львів</a>
+          <a href="#">Одеса</a>
+        </div>
+        <div class="box">
+          <h3>Швидкі посилання</h3>
+          <a href="#">Головна</a>
+          <a href="#">Бронювання</a>
+          <a href="#">Пакети турів</a>
+          <a href="#">Послуги</a>
+          <a href="#">Галерея</a>
+          <a href="#">Відгуки</a>
+          <a href="#">Контакти</a>
+        </div>
+        <div class="box">
+          <h3>Слідкуйте за нами</h3>
+          <a href="https://www.facebook.com/FreeWebsiteCode/">facebook</a>
+          <a href="https://twitter.com/freewebsitecode">twitter</a>
+          <a href="https://www.linkedin.com/in/freewebsitecode/">linkedin</a>
+          <a href="https://www.youtube.com/FreeWebsiteCode/videos">youtube</a>
+        </div>
+      </div>
+
+      <h1 class="credit">
+        <p>&copy; 2025 TravelQuiz. All rights reserved.</p>
+      </h1>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
