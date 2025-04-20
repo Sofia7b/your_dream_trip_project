@@ -8,12 +8,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <title>your-dream-trip</title>
+    <title>Your Dream Trip</title>
   </head>
   <body>
     <header>
       <div id="menu-bar" class="fas fa-bars"></div>
-
       <a href="#" class="logo"><span>T</span>ravel</a>
 
       <nav class="navbar">
@@ -37,43 +36,52 @@
       </form>
     </header>
 
-    <!-- Контейнер форми входу -->
     <div class="login-form-container">
       <i class="fas fa-times" id="form-close"></i>
-
       <form action="">
         <h3>Увійти</h3>
-        <input
-          type="email"
-          class="box"
-          placeholder="Введіть вашу електронну пошту"
-        />
-        <input type="password" class="box" placeholder="Введіть ваш пароль" />
-        <input type="submit" value="Увійти зараз" class="btn" />
+        <input type="email" class="box" placeholder="Електронна пошта" />
+        <input type="password" class="box" placeholder="Пароль" />
+        <input type="submit" value="Увійти" class="btn" />
         <input type="checkbox" id="remember" />
         <label for="remember">Запам'ятати мене</label>
-        <p>Забули пароль?<a href="#">Натисніть тут</a></p>
-        <p>Ще немає акаунта?<a href="#">Зареєструйтесь зараз</a></p>
+        <p>Забули пароль? <a href="#">Відновити</a></p>
+        <p>Немає акаунта? <a href="#">Реєстрація</a></p>
       </form>
     </div>
 
-    <!-- Контейнер з індикаторами слайдера -->
-    <div class="slider-indicator" id="indicator"></div>
+    <div class="quiz-main">
+      <div class="quiz-wrapper">
+        <div class="quiz-container" id="quiz">
+          <div class="quiz-header">
+            <p id="number" class="number-numeration"></p>
+            <h2 id="question" class="question-text"></h2>
+          </div>
+          <div id="answers" class="answers-quiz"></div>
+        </div>
+        <div class="result-content">
+          <img id="result-image" class="result-image" style="display: none" />
+          <div class="result-links"></div>
+        </div>
+        <div class="quiz-result" id="result">
+          <div class="result-content">
+            <img
+              class="result-image"
+              id="quiz-result-image"
+              alt="Результат квізу"
+            />
+            <div class="result-links"></div>
+          </div>
+        </div>
 
-    <!-- Квіз -->
-    <div class="quiz-container" id="quiz">
-      <p id="question" class="question-text">Який тип локації вам ближчий?</p>
-      <div id="answers" class="answers-quiz"></div>
-      <div id="number" class="number-numeration"></div>
+        <div class="restart-container">
+          <button id="restart-btn" class="restart-btn">
+            Спробувати ще раз
+          </button>
+        </div>
+      </div>
     </div>
 
-    <div class="restart-container">
-      <button id="restart-btn" style="display: none" class="restart-btn">
-        почати спочатку
-      </button>
-    </div>
-
-    <script src="/js/quiz_with_generator.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/quiz_with_generator.js"></script>
   </body>
 </html>

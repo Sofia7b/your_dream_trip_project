@@ -1,48 +1,87 @@
 /* Квіз */
 const questions = [
   {
-    question: "Який тип локації вам ближчий?", answers: ["Море та пляжі", "Гори та природа", "Місто та культурні пам’ятки",
-      "Ліс, усамітнення та кемпінг"]
+    question: 'Який тип локації вам ближчий?',
+    answers: [
+      'Море та пляжі',
+      'Гори та природа',
+      'Місто та культурні пам’ятки',
+      'Ліс, усамітнення та кемпінг',
+    ],
   },
   {
-    question: "Який стиль відпочинку вам більше подобається?", answers: ["Розслаблений (спа, пляж, йога)", "Активний (похід, дайвінг, катання на лижах)",
-      "Культурний (музеї, театри, архітектура)", "Гастрономічний (місцева кухня, дегустації)", "Екстремальний (стрибки з парашутом, альпінізм)"]
-  },
-  { question: "Який клімат вам до вподоби?", answers: ["Теплий і сонячний", "Холодний і сніжний", "Прохолодний і дощовий", "Помірний"] },
-  {
-    question: "Який вид пересування вам зручніший?", answers: ["Орендувати авто та подорожувати самостійно", "Потяги та громадський транспорт",
-      "Літаки для далеких подорожей", "Круїз або прогулянки на човні"]
-  },
-  { question: "Ви подорожуєте:", answers: ["Наодинці", "З родиною", "З партнером", "З друзями"] },
-  { question: "Ваш бюджет на подорож?", answers: ["Економний", "Середній", "Преміум"] },
-  {
-    question: "Що для вас головне у подорожі?", answers: ["Гарні пейзажі та природа", "Історія та культура", "Місцева кухня",
-      "Розваги та нічне життя", "Спорт та активний відпочинок"]
+    question: 'Який стиль відпочинку вам більше подобається?',
+    answers: [
+      'Розслаблений (спа, пляж, йога)',
+      'Активний (похід, дайвінг, катання на лижах)',
+      'Культурний (музеї, театри, архітектура)',
+      'Гастрономічний (місцева кухня, дегустації)',
+      'Екстремальний (стрибки з парашутом, альпінізм)',
+    ],
   },
   {
-    question: "Наскільки спонтанні ваші подорожі?", answers: ["Планую все заздалегідь", "Купую квиток і їду без чіткого плану",
-      "Люблю змінювати плани на ходу"]
-  }
+    question: 'Який клімат вам до вподоби?',
+    answers: [
+      'Теплий і сонячний',
+      'Холодний і сніжний',
+      'Прохолодний і дощовий',
+      'Помірний',
+    ],
+  },
+  {
+    question: 'Який вид пересування вам зручніший?',
+    answers: [
+      'Орендувати авто та подорожувати самостійно',
+      'Потяги та громадський транспорт',
+      'Літаки для далеких подорожей',
+      'Круїз або прогулянки на човні',
+    ],
+  },
+  {
+    question: 'Ви подорожуєте:',
+    answers: ['Наодинці', 'З родиною', 'З партнером', 'З друзями'],
+  },
+  {
+    question: 'Ваш бюджет на подорож?',
+    answers: ['Економний', 'Середній', 'Преміум'],
+  },
+  {
+    question: 'Що для вас головне у подорожі?',
+    answers: [
+      'Гарні пейзажі та природа',
+      'Історія та культура',
+      'Місцева кухня',
+      'Розваги та нічне життя',
+      'Спорт та активний відпочинок',
+    ],
+  },
+  {
+    question: 'Наскільки спонтанні ваші подорожі?',
+    answers: [
+      'Планую все заздалегідь',
+      'Купую квиток і їду без чіткого плану',
+      'Люблю змінювати плани на ходу',
+    ],
+  },
 ];
 
 let currentIndex = 0;
 let currentQuestionIndex = 0;
-const restartBtn = document.getElementById("restart-btn");
+const restartBtn = document.getElementById('restart-btn');
 
-
-// Task 1.1: 
+// Task 1.1:
 // Cyclic question generator
 function* questionGenerator() {
-    for (let i = 0; i < questions.length; i++) {
-        yield questions[i];
-    }
+  for (let i = 0; i < questions.length; i++) {
+    yield questions[i];
+  }
 }
 
 //Incremental counter generator
 function* numberGenerator(number = 1) {
-    while (true) {
-        yield number++;
-    }
+  while (true) {
+    yield number++;
+  }
 }
 
 let questionIterator = questionGenerator();
@@ -51,257 +90,318 @@ let numberIterator = numberGenerator();
 let userChoices = [];
 let locationsChoices = [];
 
-
-// Task 1.2: 
+// Task 1.2:
 function timeoutIterator(iterator, timeoutDuration) {
-    const startTime = Date.now(); 
-    let iterationCount = 0; 
+  const startTime = Date.now();
+  let iterationCount = 0;
 
-    function processNext() {
-        if (Date.now() - startTime > timeoutDuration * 1000) {
-            console.log("Тайм-аут завершено!");
-            return;
-        }
-
-        const nextValue = iterator.next(); 
-        if (nextValue.done) {
-            console.log("Ітератор завершено.");
-            return;
-        }
-
-        const value = nextValue.value;
-        iterationCount++;
-
-        if (typeof value === 'string' && value.startsWith("url")) {
-            console.log(`Ітерація: ${iterationCount}, Зміна фону на: ${value}`);
-            document.body.style.backgroundImage = value;
-        }
-        
-
-
-        setTimeout(processNext, 7000); 
+  function processNext() {
+    if (Date.now() - startTime > timeoutDuration * 1000) {
+      console.log('Тайм-аут завершено!');
+      return;
     }
 
-    processNext(); 
+    const nextValue = iterator.next();
+    if (nextValue.done) {
+      console.log('Ітератор завершено.');
+      return;
+    }
+
+    const value = nextValue.value;
+    iterationCount++;
+
+    if (typeof value === 'string' && value.startsWith('url')) {
+      console.log(`Ітерація: ${iterationCount}, Зміна фону на: ${value}`);
+      document.body.style.backgroundImage = value;
+    }
+
+    setTimeout(processNext, 7000);
+  }
+
+  processNext();
 }
 
 function* backgroundGenerator() {
-    const backgrounds = [
-        "url('images/Bali.jpg')",
-        "url('images/high_rock.jpg')",
-        "url('images/beautiful_sunset.jpg')",
-        "url('images/mountain_Canada1.jpg')",
-        "url('images/mountains_winter.jpg')"
-    ];
-    
-    let i = 0;
-    while (true) {
-        if (i >= backgrounds.length) i = 0;
-        yield backgrounds[i++];
-    }
+  const backgrounds = [
+    "url('images/Bali.jpg')",
+    "url('images/high_rock.jpg')",
+    "url('images/beautiful_sunset.jpg')",
+    "url('images/mountain_Canada1.jpg')",
+    "url('images/mountains_winter.jpg')",
+  ];
+
+  let i = 0;
+  while (true) {
+    if (i >= backgrounds.length) i = 0;
+    yield backgrounds[i++];
+  }
 }
 
 timeoutIterator(backgroundGenerator(), 45);
 
-
-
 function loadQuestion() {
-    const next = questionIterator.next();
+  const next = questionIterator.next();
 
-    restartBtn.style.display = "none"; 
+  restartBtn.style.display = 'none';
 
-    if (next.done) {
-        showResult();
-        return;
-    }
+  if (next.done) {
+    showResult();
+    return;
+  }
 
-    const quizContainer = document.getElementById("quiz");
-    const questionElement = document.getElementById("question");
-    const answersElement = document.getElementById("answers");
-    const numberElement = document.getElementById("number");
+  const quizContainer = document.getElementById('quiz');
+  const questionElement = document.getElementById('question');
+  const answersElement = document.getElementById('answers');
+  const numberElement = document.getElementById('number');
 
-    numberElement.innerText = `${numberIterator.next().value} / ${questions.length}`;
-    questionElement.innerText = next.value.question;
-    answersElement.innerHTML = "";
+  numberElement.innerText = `${numberIterator.next().value} / ${
+    questions.length
+  }`;
+  questionElement.innerText = next.value.question;
+  answersElement.innerHTML = '';
 
-    next.value.answers.forEach(answer => {
-        const button = document.createElement("button");
-        button.innerText = answer;
-        button.style.background = getRandomColor();
-        button.onclick = () => {
-            userChoices.push(answer);
-            loadQuestion(); 
-        };
-        answersElement.appendChild(button);
-    });
+  next.value.answers.forEach((answer) => {
+    const button = document.createElement('button');
+    button.innerText = answer;
+    button.style.background = getRandomColor();
+    button.onclick = () => {
+      userChoices.push(answer);
+      loadQuestion();
+    };
+    answersElement.appendChild(button);
+  });
 }
 
 function showResult() {
-    const quizContainer = document.getElementById("quiz");
+  const quizContainer = document.getElementById('quiz');
+  const resultContainer = document.getElementById('result');
+  const resultImage = document.getElementById('quiz-result-image');
+  const resultLinks = document.querySelector('.result-links');
 
-    recommendTrip(userChoices).then(place => {
-        const resultImage = document.createElement("img");
-        resultImage.id = "result-image";
-        resultImage.src = place.image;
-        document.body.appendChild(resultImage);
+  quizContainer.style.display = 'none';
+  resultContainer.style.display = 'block';
+  recommendTrip(userChoices)
+    .then((place) => {
+      if (!place) {
+        resultContainer.innerHTML = `<p>Не знайдено рекомендацій. Спробуйте інші відповіді!</p>`;
+        return;
+      }
 
-        
-        let resultHTML = `<p>Рекомендуємо вам наступний напрямок:</p>`;
-        resultHTML += `
-            <div class="destination">
-                <p><strong>${place.name}</strong></p>
-                <p><a href="${place.link}" target="_blank">знайти квитки</a></p>
-                <p><a href="${place.bookingLink}" target="_blank">забронювати готель</a></p>
-            </div>
-        `;
+      resultImage.src = place.image;
+      resultImage.alt = place.name;
 
-        quizContainer.innerHTML = resultHTML;
-        restartBtn.style.display = "block"; 
-        quizContainer.appendChild(restartBtn);
+      resultLinks.innerHTML = `
+              <a href="${place.link}" target="_blank" class="btn">Квитки</a>
+              <a href="${place.bookingLink}" target="_blank" class="btn">Готелі</a>
+            `;
+
+      if (!document.querySelector('.result-content h2')) {
+        const title = document.createElement('h2');
+        title.textContent = place.name;
+        resultImage.insertAdjacentElement('beforebegin', title);
+      } else {
+        document.querySelector('.result-content h2').textContent = place.name;
+      }
+
+      restartBtn.style.display = 'block';
+    })
+    .catch((error) => {
+      console.error('Помилка:', error);
+      resultContainer.innerHTML = `<p>Сталася помилка. Спробуйте ще раз!</p>`;
     });
 }
 
 function restartQuiz() {
-    userChoices = [];
-    currentIndex = 0;
-    currentQuestionIndex = 0;
-     const quizContainer = document.getElementById("quiz");
+  userChoices = [];
+  currentIndex = 0;
+  currentQuestionIndex = 0;
+  const quizContainer = document.getElementById('quiz');
 
-    const resultImage = document.getElementById("result-image");
-    if (resultImage) {
-        resultImage.remove();
-    }
+  const resultImage = document.getElementById('result-image');
+  if (resultImage) {
+    resultImage.remove();
+  }
 
-    questionIterator.return?.(); 
-    numberIterator.return?.();
+  questionIterator.return?.();
+  numberIterator.return?.();
 
-    questionIterator = questionGenerator();
-    numberIterator = numberGenerator();
-    quizContainer.innerHTML = `<p id="question" class="question-text">Какой тип локации вам ближе?</p>
-      <div id="answers" class="answers-quiz"></div>
-      <div id="number" class="number-numeration"></div>`
+  questionIterator = questionGenerator();
+  numberIterator = numberGenerator();
+  quizContainer.innerHTML = `
+        <div class="quiz-header">
+          <p id="number" class="number-numeration"></p>
+          <h2 id="question" class="question-text"></h2>
+        </div>
+        <div id="answers" class="answers-quiz"></div>
+      `;
 
-    loadQuestion();
+  loadQuestion();
+  const resultContainer = document.getElementById('result');
+  resultContainer.style.display = 'none';
+  quizContainer.style.display = 'block';
 }
 
-restartBtn.addEventListener("click", restartQuiz);
-
+restartBtn.addEventListener('click', restartQuiz);
 
 function getRandomColor() {
-    return `hsl(${Math.random() * 360}, 70%, 60%)`;
+  return `hsl(${Math.random() * 360}, 70%, 60%)`;
 }
 
 loadQuestion();
 
 async function getLocations() {
-    console.log("FETCHING LOCATIONS...");
-    try {
-        const response = await fetch("/js/locations.json");
+  console.log('FETCHING LOCATIONS...');
+  try {
+    const response = await fetch('js/locations.json');
 
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log("Успішно завантажено:", data);
-        return data;
-
-    } catch (error) {
-        console.error("Помилка завантаження JSON:", error.message);
-        return null;
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
     }
-}
 
-
-async function recommendTrip(choices) {
-    let locations = await memoizedGetLocations();
-  console.log("V002", locations);
-  for (let tag of choices) {
-    locs = locations.filter(loc => loc.tags.includes(tag));
-    if (locs.length === 0) {
-      break;
-    }
-    locations = locs;
+    const data = await response.json();
+    console.log('Успішно завантажено:', data);
+    return data;
+  } catch (error) {
+    console.error('Помилка завантаження JSON:', error.message);
+    return null;
   }
-  return locations[0];
 }
 
+const memoizedGetLocations = memoize(getLocations);
+async function recommendTrip(choices) {
+  const locations = await memoizedGetLocations();
+  if (!locations?.length) return null;
 
+  const normalize = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^а-яєії'ґ\s]/gi, '')
+      .trim();
+  const normalizedChoices = choices.map(normalize);
 
-// Task 3:
-function memoize(fn, {
+  const scored = locations.map((loc) => {
+    const score = loc.tags.reduce((total, tag) => {
+      const normalizedTag = normalize(tag);
+      return normalizedChoices.some(
+        (choice) =>
+          normalizedTag.includes(choice) || choice.includes(normalizedTag)
+      )
+        ? total + 1
+        : total;
+    }, 0);
+    return { ...loc, score };
+  });
+  const sorted = scored.sort((a, b) => b.score - a.score);
+  console.log('Normalized choices:', normalizedChoices);
+  console.log(
+    'Scored locations:',
+    sorted.map((l) => `${l.name} (${l.score})`)
+  );
+  return sorted[0] || null;
+}
+
+// task 3
+function memoize(
+  fn,
+  {
     maxSize = Infinity,
-    strategy = "LRU",   
+    strategy = 'LRU',
     ttl = null,
-    customEviction = null
-} = {}) {
-    const cache = new Map();
-    const frequencyMap = new Map();
+    customEviction = null,
+    serializer = (...args) => JSON.stringify(args),
+  } = {}
+) {
+  const cache = new Map();
+  const frequencyMap = new Map();
+  const lruQueue = [];
+  let cleanupTimer;
 
-    function evictIfNeeded() {
-        if (strategy === "Time") return; 
-
-        if (cache.size <= maxSize) return;
-
-        if (customEviction) {
-            customEviction(cache);
-        } else if (strategy === "LRU") {
-            const firstKey = cache.keys().next().value;
-            cache.delete(firstKey);
-            frequencyMap.delete(firstKey);
-        } else if (strategy === "LFU") {
-            let minFreq = Infinity;
-            let keyToDelete;
-            for (let [key, freq] of frequencyMap.entries()) {
-                if (freq < minFreq) {
-                    minFreq = freq;
-                    keyToDelete = key;
-                }
-            }
-            if (keyToDelete !== undefined) {
-                cache.delete(keyToDelete);
-                frequencyMap.delete(keyToDelete);
-            }
+  const startTTLCleanup = () => {
+    if (ttl && !cleanupTimer) {
+      cleanupTimer = setInterval(() => {
+        const now = Date.now();
+        for (const [key, entry] of cache.entries()) {
+          if (now - entry.timestamp > ttl) {
+            cache.delete(key);
+            frequencyMap.delete(key);
+            lruQueue.splice(lruQueue.indexOf(key), 1);
+          }
         }
+      }, Math.min(ttl, 60000));
+    }
+  };
+
+  startTTLCleanup();
+
+  const evict = () => {
+    if (cache.size >= maxSize) {
+      if (customEviction) {
+        customEviction(cache, { frequencyMap, lruQueue });
+      } else {
+        switch (strategy) {
+          case 'LRU':
+            const lruKey = lruQueue.shift();
+            cache.delete(lruKey);
+            frequencyMap.delete(lruKey);
+            break;
+          case 'LFU':
+            let minFreq = Infinity;
+            let lfuKey;
+            frequencyMap.forEach((freq, key) => {
+              if (freq < minFreq) {
+                minFreq = freq;
+                lfuKey = key;
+              }
+            });
+            cache.delete(lfuKey);
+            frequencyMap.delete(lfuKey);
+            lruQueue.splice(lruQueue.indexOf(lfuKey), 1);
+            break;
+        }
+      }
+    }
+  };
+
+  const memoized = function (...args) {
+    const key = serializer(...args);
+
+    if (cache.has(key)) {
+      const entry = cache.get(key);
+      if (strategy === 'LRU') {
+        lruQueue.push(lruQueue.splice(lruQueue.indexOf(key), 1)[0]);
+      }
+      frequencyMap.set(key, (frequencyMap.get(key) || 0) + 1);
+      return entry.value;
     }
 
-    return async function (...args) {
-        const key = JSON.stringify(args);
+    const result = fn(...args);
 
-        if (cache.has(key)) {
-            const entry = cache.get(key);
+    if (result instanceof Promise) {
+      return result
+        .then((res) => {
+          cache.set(key, { value: res, timestamp: Date.now() });
+          frequencyMap.set(key, 1);
+          lruQueue.push(key);
+          evict();
+          return res;
+        })
+        .catch((err) => {
+          throw err;
+        });
+    } else {
+      cache.set(key, { value: result, timestamp: Date.now() });
+      frequencyMap.set(key, 1);
+      lruQueue.push(key);
+      evict();
+      return result;
+    }
+  };
 
-            if (!ttl || (Date.now() - entry.timestamp < ttl)) {
-                if (strategy === "LFU") {
-                    frequencyMap.set(key, (frequencyMap.get(key) || 0) + 1);
-                }
-                if (strategy === "LRU") {
-                    cache.delete(key);
-                    cache.set(key, entry);
-                }
+  memoized.clearCache = () => {
+    cache.clear();
+    frequencyMap.clear();
+    lruQueue.length = 0;
+  };
 
-                return entry.value;
-            } else {
-                cache.delete(key);
-                frequencyMap.delete(key);
-            }
-        }
-
-        const result = await fn(...args);
-        cache.set(key, { value: result, timestamp: Date.now() });
-
-        if (strategy === "LFU") {
-            frequencyMap.set(key, 1);
-        }
-
-        evictIfNeeded();
-
-        return result;
-    };
+  return memoized;
 }
-
-const memoizedGetLocations = memoize(getLocations, {
-    maxSize: 1,           
-    strategy: "Time",     
-    ttl: 2 * 60 * 1000   
-});
