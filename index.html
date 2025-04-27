@@ -527,7 +527,7 @@
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="box">
-              <img src="images/Team-4.svg" alt="" />
+              <img src="images/Team-4.jpg" alt="" />
               <h3>Ігор Коваль</h3>
               <p>
                 Неймовірні враження від подорожі до Греції! Дуже сподобались
@@ -548,7 +548,7 @@
           </div>
           <div class="swiper-slide">
             <div class="box">
-              <img src="images/Team-6.svg" alt="" />
+              <img src="images/Team-6.jpg" alt="" />
               <h3>Олена Савчук</h3>
               <p>
                 Подорож була організована бездоганно! Все відповідало опису, а
@@ -565,7 +565,7 @@
           </div>
           <div class="swiper-slide">
             <div class="box">
-              <img src="images/Team-3.svg" alt="" />
+              <img src="images/Team-3.jpg" alt="" />
               <h3>Андрій Б.</h3>
               <p>
                 Все було організовано на відмінно! Відпочивав у Домінікані, і ця
@@ -584,7 +584,7 @@
           </div>
           <div class="swiper-slide">
             <div class="box">
-              <img src="images/Team-5.svg" alt="" />
+              <img src="images/Team-5.jpg" alt="" />
               <h3>Наталія</h3>
               <p>
                 Загалом усе сподобалось, але були деякі неточності в розкладі
@@ -662,8 +662,35 @@
       </div>
     </section>
 
-    <!-- footer section  -->
+    <section class="recommendations" id="recommendations">
+      <h1 class="heading">
+        <span>р</span>
+        <span>е</span>
+        <span>к</span>
+        <span>о</span>
+        <span>м</span>
+        <span>е</span>
+        <span>н</span>
+        <span>д</span>
+        <span>а</span>
+        <span>ц</span>
+        <span>і</span>
+        <span>ї</span>
+      </h1>
 
+      <div id="recommendation-controls" class="recommendation-controls">
+        <button class="sort-btn active" data-sort="highest">
+          За популярністю
+        </button>
+        <button class="sort-btn" data-sort="newest">Нові пропозиції</button>
+        <button class="sort-btn" data-sort="lowest">Бюджетні варіанти</button>
+        <button class="sort-btn" data-sort="oldest">Перевірені часом</button>
+      </div>
+
+      <div class="recommendation-container"></div>
+    </section>
+
+    <!-- footer section  -->
     <footer class="footer">
       <div class="box-container">
         <div class="box">
@@ -706,6 +733,7 @@
     </footer>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
+
   </body>
 </html>
