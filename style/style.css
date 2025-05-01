@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
 
 :root {
   --orange: #ff4757;
 }
 
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -336,7 +336,10 @@ header .search-bar-container label:hover {
 }
 
 .book .row {
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Выравниваем по вертикали */
+  gap: 2rem;
 }
 
 .book .row .image {
@@ -681,7 +684,7 @@ header .search-bar-container label:hover {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .sort-btn {
     width: 80%;
     text-align: center;
@@ -761,7 +764,7 @@ header .search-bar-container label:hover {
 
 .footer .box-container .box p {
   font-size: 1.5rem;
-  padding: 0.7rem 10px;
+  padding: 0.7rem 50px;
   color: #eee;
   text-transform: none;
 }
@@ -774,7 +777,7 @@ header .search-bar-container label:hover {
 }
 
 .footer .box-container .box .about_us {
-  padding: 0.7rem 9px;
+  padding: 0.7rem 50px;
 }
 
 .footer .box-container .box a:hover {

@@ -10,7 +10,7 @@
 }
 
 * {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,7 +31,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   background-color: var(--light-gray);
   background-size: cover;
   background-position: center;
@@ -64,7 +64,7 @@ header .logo {
   text-transform: uppercase;
 }
 header .logo span {
-  color: var(--orange);
+  color: #ff4757;
 }
 header .navbar a {
   color: var(--white);
@@ -354,7 +354,17 @@ header .search-bar-container label:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 .restart-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1.9rem;
+  border-radius: 5rem;
   background: var(--dark);
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto 0;
+  width: fit-content;
 }
 .restart-btn:hover {
   background: var(--orange);

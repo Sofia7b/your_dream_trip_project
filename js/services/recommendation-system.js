@@ -1,10 +1,7 @@
 import BiDirectionalPriorityQueue from '../data-structures/priority-queue.js';
 
-/**
- * Task 4: Implement a BiDirectionalPriorityQueue
- * Travel Recommendations System
- * Uses a BiDirectionalPriorityQueue to manage and retrieve travel recommendations
- */
+//Task 4:
+
 class TravelRecommendationSystem {
     constructor() {
         this.recommendationsQueue = new BiDirectionalPriorityQueue();
@@ -122,15 +119,21 @@ class TravelRecommendationSystem {
         return this.recommendationsQueue.getAll(option).slice(0, 3);
     }
     
-  // Не реалізовано (замало опцій у рекомендаціях, буде повторюватися) можна видалити
-    getMoreRecommendations(option, count = 6) {
-        return this.recommendationsQueue.getAll(option).slice(0, count);
-    }
+  
 
-    // Не використовується
-    addRecommendation(recommendation, priority) {
-        this.recommendationsQueue.enqueue(recommendation, priority);
-    }
+
+
+    
+
+
+    
+    // getMoreRecommendations(option, count = 6) {
+    //     return this.recommendationsQueue.getAll(option).slice(0, count);
+    // }
+
+    // addRecommendation(recommendation, priority) {
+    //     this.recommendationsQueue.enqueue(recommendation, priority);
+    // }
 }
 
 export default new TravelRecommendationSystem();
