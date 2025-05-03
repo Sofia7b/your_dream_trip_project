@@ -24,9 +24,9 @@ class BiDirectionalPriorityQueue {
             case 'lowest':
                 return [...this.items].sort((a, b) => a.priority - b.priority)[0].item;
             case 'oldest':
-                return [...this.items].sort((a, b) => a.insertionOrder - b.insertionOrder)[0].item;
+                return this.items[0];
             case 'newest':
-                return [...this.items].sort((a, b) => b.insertionOrder - a.insertionOrder)[0].item;
+                return this.items[this.items.length - 1];
             default:
                 return null;
         }
@@ -44,11 +44,9 @@ class BiDirectionalPriorityQueue {
                 sortedItems = [...this.items].sort((a, b) => a.priority - b.priority);
                 break;
             case 'oldest':
-                sortedItems = [...this.items].sort((a, b) => a.insertionOrder - b.insertionOrder);
-                break;
+                return this.items.shift();
             case 'newest':
-                sortedItems = [...this.items].sort((a, b) => b.insertionOrder - a.insertionOrder);
-                break;
+                return this.items.unshift();
             default:
                 return null;
         }
