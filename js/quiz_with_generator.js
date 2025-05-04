@@ -1,4 +1,5 @@
 /* Квіз */
+
 const questions = [
   {
     question: 'Який тип локації вам ближчий?',
@@ -140,6 +141,8 @@ function* backgroundGenerator() {
 timeoutIterator(backgroundGenerator(), 45);
 
 function loadQuestion() {
+  document.getElementById('result').style.display = 'none';
+  document.querySelector('.result-links').innerHTML = '';
   const next = questionIterator.next();
 
   restartBtn.style.display = 'none';
@@ -171,8 +174,8 @@ function loadQuestion() {
     answersElement.appendChild(button);
   });
 }
-
-function showResult() {
+//fixed
+async function showResult() {
   const quizContainer = document.getElementById('quiz');
   const resultContainer = document.getElementById('result');
   const resultImage = document.getElementById('quiz-result-image');
@@ -180,35 +183,36 @@ function showResult() {
 
   quizContainer.style.display = 'none';
   resultContainer.style.display = 'block';
-  recommendTrip(userChoices)
-    .then((place) => {
-      if (!place) {
-        resultContainer.innerHTML = `<p>Не знайдено рекомендацій. Спробуйте інші відповіді!</p>`;
-        return;
-      }
 
-      resultImage.src = place.image;
-      resultImage.alt = place.name;
+  try {
+    const place = await recommendTrip(userChoices);
 
-      resultLinks.innerHTML = `
-              <a href="${place.link}" target="_blank" class="btn">Квитки</a>
-              <a href="${place.bookingLink}" target="_blank" class="btn">Готелі</a>
-            `;
+    if (!place) {
+      resultContainer.innerHTML = `<p>Не знайдено рекомендацій. Спробуйте інші відповіді!</p>`;
+      return;
+    }
 
-      if (!document.querySelector('.result-content h2')) {
-        const title = document.createElement('h2');
-        title.textContent = place.name;
-        resultImage.insertAdjacentElement('beforebegin', title);
-      } else {
-        document.querySelector('.result-content h2').textContent = place.name;
-      }
+    resultImage.src = place.image;
+    resultImage.alt = place.name;
 
-      restartBtn.style.display = 'block';
-    })
-    .catch((error) => {
-      console.error('Помилка:', error);
-      resultContainer.innerHTML = `<p>Сталася помилка. Спробуйте ще раз!</p>`;
-    });
+    resultLinks.innerHTML = `
+      <a href="${place.link}"        target="_blank" class="btn">Квитки</a>
+      <a href="${place.bookingLink}" target="_blank" class="btn">Готелі</a>
+    `;
+
+    let titleEl = document.querySelector('.result-content h2');
+    if (!titleEl) {
+      titleEl = document.createElement('h2');
+      titleEl.classList.add('result-title');
+      resultImage.insertAdjacentElement('beforebegin', titleEl);
+    }
+    titleEl.textContent = place.name;
+
+    restartBtn.style.display = 'block';
+  } catch (error) {
+    console.error('Помилка при показі результату:', error);
+    resultContainer.innerHTML = `<p>Сталася помилка. Спробуйте ще раз!</p>`;
+  }
 }
 
 function restartQuiz() {
