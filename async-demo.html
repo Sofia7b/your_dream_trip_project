@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Детальніше про подорожі</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/async-demo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="menu-bar" class="fas fa-bars"></div>
+      <a href="index.html" class="logo"><span>T</span>ravel</a>
+
+      <nav class="navbar">
+        <a href="index.html">Головна</a>
+        <a href="index.html#book">Бронювання</a>
+        <a href="index.html#packages">Пакети</a>
+        <a href="index.html#services">Послуги</a>
+        <a href="index.html#gallery">Галерея</a>
+        <a href="index.html#review">Відгуки</a>
+        <a href="index.html#contact">Контакти</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fas fa-search" id="search-btn"></i>
+        <i class="fas fa-user" id="login-btn"></i>
+      </div>
+
+      <form action="" class="search-bar-container">
+        <input type="search" id="search-bar" placeholder="Пошук..." />
+        <label for="search-bar" class="fas fa-search"></label>
+      </form>
+    </header>
+
+    <div class="login-form-container">
+      <i class="fas fa-times" id="form-close"></i>
+      <form action="">
+        <h3>Увійти</h3>
+        <input type="email" class="box" placeholder="Електронна пошта" />
+        <input type="password" class="box" placeholder="Пароль" />
+        <input type="submit" value="Увійти" class="btn" />
+        <input type="checkbox" id="remember" />
+        <label for="remember">Запам'ятати мене</label>
+        <p>Забули пароль? <a href="#">Відновити</a></p>
+        <p>Немає акаунта? <a href="#">Реєстрація</a></p>
+      </form>
+    </div>
+
+    <section class="async-demo">
+      <h1 class="heading">
+        <span>Д</span>
+        <span>е</span>
+        <span>т</span>
+        <span>а</span>
+        <span>л</span>
+        <span>ь</span>
+        <span>н</span>
+        <span>і</span>
+        <span>ш</span>
+        <span>е</span>
+      </h1>
+
+      <div class="demo-container">
+        <div class="control-panel">
+          <h3>Дізнайся більше!</h3>
+          <p>
+            Завантажте більше інформації про популярні туристичні напрямки,
+            натиснувши на кнопки знизу.
+          </p>
+
+          <div class="control-buttons">
+            <button id="callback-demo" class="btn">
+              <i class="fas fa-code"></i> Callback метод
+            </button>
+            <button id="promise-demo" class="btn">
+              <i class="fas fa-promise"></i> Promise метод
+            </button>
+            <button id="async-await-demo" class="btn">
+              <i class="fas fa-layer-group"></i> Async/Await
+            </button>
+            <button id="abort-demo" class="btn abort-btn">
+              <i class="fas fa-ban"></i> Відмінити обробку
+            </button>
+          </div>
+        </div>
+
+        <div class="results-panel">
+          <h3>Популярні напрямки</h3>
+          <div class="status-indicator">
+            <div class="status-text">Готово до завантаження</div>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+          </div>
+
+          <div class="destinations-container" id="results-container">
+            <p class="initial-message">
+              Натисніть кнопку для завантаження деталей
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="box-container">
+        <div class="box">
+          <h3 class="about_us">Про нас</h3>
+          <p>
+            Наш сайт — це платформа для пошуку туристичних напрямків, вигідних
+            турів та натхнення для подорожей. Ми прагнемо зробити планування
+            поїздок простим, зручним і приємним для кожного.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Місця розташування філій</h3>
+          <a href="#">Київ</a>
+          <a href="#">Дніпро</a>
+          <a href="#">Львів</a>
+          <a href="#">Одеса</a>
+        </div>
+        <div class="box">
+          <h3>Швидкі посилання</h3>
+          <a href="#">Головна</a>
+          <a href="#">Бронювання</a>
+          <a href="#">Пакети турів</a>
+          <a href="#">Послуги</a>
+          <a href="#">Галерея</a>
+          <a href="#">Відгуки</a>
+          <a href="#">Контакти</a>
+        </div>
+        <div class="box">
+          <h3>Слідкуйте за нами</h3>
+          <a href="https://www.facebook.com/FreeWebsiteCode/">facebook</a>
+          <a href="https://twitter.com/freewebsitecode">twitter</a>
+          <a href="https://www.linkedin.com/in/freewebsitecode/">linkedin</a>
+          <a href="https://www.youtube.com/FreeWebsiteCode/videos">youtube</a>
+        </div>
+      </div>
+
+      <h1 class="credit">
+        <p>&copy; 2025 Your-Dream-Trip. All rights reserved.</p>
+      </h1>
+    </footer>
+
+    <script type="module" src="js/async-demo.js"></script>
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
