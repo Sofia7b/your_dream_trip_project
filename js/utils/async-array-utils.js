@@ -28,12 +28,10 @@ Array.prototype.mapAsyncAbortable = function(callback, signal, completionCallbac
       if (aborted || (signal?.aborted)) {
         return completionCallback(new Error("Операція була скасована"));
       }
-      // Застосування callback до поточного елемента
       result.push(callback(this[i], i, this));
     }
     completionCallback(null, result);
   } catch (error) {
-    // Обробка помилок під час виконання
     completionCallback(error);
   }
 };
