@@ -592,6 +592,7 @@ header .search-bar-container label:hover {
   font-weight: 600;
   transition: all 0.3s ease;
   color: #666;
+  text-transform: none;
 }
 
 .sort-btn:hover {

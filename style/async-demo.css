@@ -148,6 +148,7 @@
   color: #666;
   font-size: 1.4rem;
   line-height: 1.5;
+  text-transform: none;
 }
 
 .processing-indicator {
