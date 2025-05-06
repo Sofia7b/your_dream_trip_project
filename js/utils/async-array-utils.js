@@ -1,9 +1,6 @@
 // Task: 5
 /**
  * Асинхронна версія map з підтримкою скасування (callback)
- * 2. Підтримка AbortSignal для скасування
- * 3. Обробка синхронних та асинхронних операцій
- * 4. Повертає результати через completionCallback
  */
 Array.prototype.mapAsyncAbortable = function(callback, signal, completionCallback) {
   // Обробка випадку, коли signal передано як функція (для зворотньої сумісності)
