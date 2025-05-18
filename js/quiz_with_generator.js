@@ -1,3 +1,17 @@
+import { AuthProxy } from './proxy.js';
+
+const proxy = new AuthProxy({
+  apiKey: 'apikey',
+  getToken: async (forceRefresh = false) => {
+    let token = localStorage.getItem('jwtToken');
+    if (forceRefresh || !token) {
+      token = 'fake-jwt-token-' + Date.now();
+      localStorage.setItem('jwtToken', token);
+    }
+    return token;
+  },
+});
+
 /* Квіз */
 const questions = [
   {
@@ -172,7 +186,7 @@ function loadQuestion() {
   });
 }
 
-function showResult() {
+async function showResult() {
   const quizContainer = document.getElementById('quiz');
   const resultContainer = document.getElementById('result');
   const resultImage = document.getElementById('quiz-result-image');
@@ -180,6 +194,17 @@ function showResult() {
 
   quizContainer.style.display = 'none';
   resultContainer.style.display = 'block';
+
+  try {
+    const placeholderResponse = await proxy.post(
+      'https://jsonplaceholder.typicode.com/posts',
+      { answers: userChoices }
+    );
+    const placeholderData = await placeholderResponse.json();
+    console.log('Answer', placeholderData);
+  } catch (err) {
+    console.error('Error:', err);
+  }
   recommendTrip(userChoices)
     .then((place) => {
       if (!place) {
