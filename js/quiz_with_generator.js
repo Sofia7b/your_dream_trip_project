@@ -1,3 +1,4 @@
+import { log } from './log.js';
 import { AuthProxy } from './proxy.js';
 
 const proxy = new AuthProxy({
@@ -205,7 +206,7 @@ async function showResult() {
   } catch (err) {
     console.error('Error:', err);
   }
-  recommendTrip(userChoices)
+  recommendTripLogged(userChoices)
     .then((place) => {
       if (!place) {
         resultContainer.innerHTML = `<p>Не знайдено рекомендацій. Спробуйте інші відповіді!</p>`;
@@ -324,6 +325,12 @@ async function recommendTrip(choices) {
   );
   return sorted[0] || null;
 }
+
+const recommendTripLogged = log({
+  level: 'DEBUG',
+  target: 'console',
+  profile: true,
+})(recommendTrip);
 
 // task 3
 function memoize(
