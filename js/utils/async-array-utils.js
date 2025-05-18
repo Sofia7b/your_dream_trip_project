@@ -3,18 +3,19 @@ Array.prototype.mapAsyncAbortable = function (
   signal,
   completionCallback
 ) {
-  if (typeof signal === 'function') {
+  if (typeof signal === "function") {
     completionCallback = signal;
     signal = null;
   }
-  if (typeof completionCallback !== 'function') {
-    throw new Error('Операція скасована');
+
+  if (typeof completionCallback !== "function") {
+    throw new Error("Completion callback must be a function");
   }
 
   const sourceArray = this;
 
   if (signal?.aborted) {
-    queueMicrotask(() => completionCallback(new Error('Операція скасована')));
+    queueMicrotask(() => completionCallback(new Error("Operation aborted")));
     return;
   }
 
@@ -32,16 +33,15 @@ Array.prototype.mapAsyncAbortable = function (
     abortHandler = () => {
       if (operationFinishedOrAborted) return;
       operationFinishedOrAborted = true;
-      if (signal) signal.removeEventListener('abort', abortHandler);
-      completionCallback(new Error('Операція скасована'));
+      signal.removeEventListener("abort", abortHandler);
+      completionCallback(new Error("Operation aborted"));
     };
-    signal.addEventListener('abort', abortHandler);
+    signal.addEventListener("abort", abortHandler);
   }
 
   for (let i = 0; i < sourceArray.length; i++) {
-    if (operationFinishedOrAborted) {
-      break;
-    }
+    if (operationFinishedOrAborted) break;
+
     const currentIndex = i;
     Promise.resolve(
       callback(sourceArray[currentIndex], currentIndex, sourceArray)
@@ -50,68 +50,62 @@ Array.prototype.mapAsyncAbortable = function (
         if (operationFinishedOrAborted) return;
         results[currentIndex] = result;
         completedCount++;
+
         if (completedCount === sourceArray.length) {
           operationFinishedOrAborted = true;
-          if (signal && abortHandler)
-            signal.removeEventListener('abort', abortHandler);
+          if (signal) signal.removeEventListener("abort", abortHandler);
           completionCallback(null, results);
         }
       })
       .catch((err) => {
         if (operationFinishedOrAborted) return;
         operationFinishedOrAborted = true;
-        if (signal && abortHandler)
-          signal.removeEventListener('abort', abortHandler);
+        if (signal) signal.removeEventListener("abort", abortHandler);
         completionCallback(err);
       });
   }
 };
 
+// Promise
 Array.prototype.mapAsyncPromiseAbortable = function (callback, signal) {
   return new Promise((resolve, reject) => {
     const sourceArray = this;
 
     if (signal?.aborted) {
-      return reject(new Error('Операція скасована'));
-    }
-
-    if (sourceArray.length === 0) {
-      return resolve([]);
+      return reject(new Error("Operation aborted"));
     }
 
     let abortHandler = null;
     if (signal) {
       abortHandler = () => {
-        reject(new Error('Операція скасована'));
+        reject(new Error("Operation aborted"));
       };
-      signal.addEventListener('abort', abortHandler);
+      signal.addEventListener("abort", abortHandler);
     }
 
-    const itemPromises = sourceArray.map(async (item, index, array) => {
+    const promises = sourceArray.map((item, index) => {
       if (signal?.aborted) {
-        throw new Error(`Операція скасована на індексі ${index}.`);
+        throw new Error("Operation aborted");
       }
-      return await callback(item, index, array);
+      return Promise.resolve(callback(item, index, sourceArray));
     });
 
-    Promise.all(itemPromises)
+    Promise.all(promises)
       .then((results) => {
         if (signal && abortHandler) {
-          signal.removeEventListener('abort', abortHandler);
+          signal.removeEventListener("abort", abortHandler);
         }
         resolve(results);
       })
       .catch((error) => {
         if (signal && abortHandler) {
-          signal.removeEventListener('abort', abortHandler);
+          signal.removeEventListener("abort", abortHandler);
         }
         reject(error);
       });
   });
 };
 
-//доп функція для імітації асинхрон операцій
-
-export function simulateAsyncOperation(value, delay = 500) {
+function simulateAsyncOperation(value, delay = 500) {
   return new Promise((resolve) => setTimeout(() => resolve(value), delay));
 }
