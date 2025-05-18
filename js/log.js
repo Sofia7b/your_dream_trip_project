@@ -8,7 +8,19 @@ export function log({
       const start = profile ? Date.now() : null;
 
       if (level !== 'ERROR') {
-        console.log(`[${level}] Calling ${fn.name}`, args);
+        if (level === 'DEBUG') {
+          console.log(
+            `${new Date().toLocaleString()} ${level} Calling ${
+              fn.name
+            } with args:`,
+            args
+          );
+        } else {
+          //info
+          console.log(
+            `${new Date().toLocaleString()} ${level} ${fn.name} called`
+          );
+        }
       }
 
       try {
@@ -17,11 +29,19 @@ export function log({
 
         if (level !== 'ERROR') {
           const duration = profile ? Date.now() - start : undefined;
-          console.log(
-            `[${level}] Result ${fn.name}:`,
-            value,
-            duration != null ? `(${duration}ms)` : ''
-          );
+
+          if (level === 'DEBUG') {
+            console.log(
+              `${new Date().toLocaleString()} ${level} Result of ${fn.name}:`,
+              value,
+              duration != null ? `(${duration}ms)` : ''
+            );
+          } else {
+            console.log(
+              `${new Date().toLocaleString()} ${level} ${fn.name} completed`,
+              duration != null ? `(${duration}ms)` : ''
+            );
+          }
         }
 
         return value;
