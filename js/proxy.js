@@ -1,40 +1,33 @@
-export class AuthProxy {
-  constructor({ apiKey, getToken }) {
+import { IApiService, CoreApiService } from './apiservice.js';
+
+export class AuthProxy extends IApiService {
+  constructor(realService = new CoreApiService(), { apiKey, getToken }) {
+    super();
+    this.realService = realService;
     this.apiKey = apiKey;
     this.getToken = getToken;
   }
 
-  async request(url, options = {}) {
-    const headers = options.headers || {};
-
-    headers['API-KEY'] = this.apiKey;
-
+  async get(url) {
+    const headers = { 'API-KEY': this.apiKey };
     if (this.getToken) {
       const token = await this.getToken();
       headers['Authorization'] = `Bearer ${token}`;
     }
-    const finalOptions = {
-      ...options,
-      headers,
+    return this.realService.get(url, { headers });
+  }
+
+  async post(url, body) {
+    const headers = {
+      'Content-Type': 'application/json',
+      'API-KEY': this.apiKey,
     };
-
-    const response = await fetch(url, finalOptions);
-    if (response.status === 401 && this.getToken) {
-      const newToken = await this.getToken(true);
-      headers['Authorization'] = `Bearer ${newToken}`;
-      return fetch(url, { ...finalOptions, headers });
+    if (this.getToken) {
+      const token = await this.getToken();
+      headers['Authorization'] = `Bearer ${token}`;
     }
-    return response;
-  }
-
-  get(url) {
-    return this.request(url, { method: 'GET' });
-  }
-
-  post(url, body) {
-    return this.request(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    return this.realService.post(url, {
+      headers,
       body: JSON.stringify(body),
     });
   }

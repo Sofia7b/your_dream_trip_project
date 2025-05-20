@@ -1,7 +1,8 @@
 import { log } from './log.js';
 import { AuthProxy } from './proxy.js';
+import { CoreApiService } from './apiservice.js';
 
-const proxy = new AuthProxy({
+const proxy = new AuthProxy(new CoreApiService(), {
   apiKey: 'apikey',
   getToken: async (forceRefresh = false) => {
     let token = localStorage.getItem('jwtToken');
