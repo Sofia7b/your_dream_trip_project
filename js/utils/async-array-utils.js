@@ -1,3 +1,4 @@
+// Task 5:
 Array.prototype.mapAsyncAbortable = function (
   callback,
   signal,

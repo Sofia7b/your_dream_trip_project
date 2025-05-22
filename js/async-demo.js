@@ -34,7 +34,6 @@ const destinations = [
   },
 ];
 
-// Dom елементи
 const callbackDemoBtn = document.getElementById('callback-demo');
 const promiseDemoBtn = document.getElementById('promise-demo');
 const asyncAwaitDemoBtn = document.getElementById('async-await-demo');
@@ -67,7 +66,6 @@ function updateUI(state = 'idle', progress = 0) {
   }
 }
 
-// Скидання інтерфейсу перед кожною демонстрацією
 function resetDemo() {
   abortCurrentOperation();
   updateUI('idle', 0);

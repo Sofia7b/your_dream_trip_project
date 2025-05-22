@@ -34,7 +34,7 @@ section {
 
 .heading {
   text-align: center;
-  padding: 2.5rem 0;
+  padding: 50px 0 50px 0;
 }
 
 .heading span {
@@ -255,7 +255,7 @@ header .search-bar-container label:hover {
   flex-flow: column;
   position: relative;
   z-index: 0;
-  background-color: #000; /* Add black background in case video fails */
+  background-color: #000;
 }
 
 .home .content {
@@ -338,7 +338,7 @@ header .search-bar-container label:hover {
 .book .row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; /* Выравниваем по вертикали */
+  align-items: center;
   gap: 2rem;
 }
 
@@ -568,7 +568,6 @@ header .search-bar-container label:hover {
   font-size: 1.7rem;
 }
 
-/* Recommendations section styles */
 .recommendations {
   background: #f9f9f9;
   padding-bottom: 4rem;
@@ -577,7 +576,7 @@ header .search-bar-container label:hover {
 .recommendation-controls {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -679,7 +678,6 @@ header .search-bar-container label:hover {
   display: inline-block;
 }
 
-/* Media queries for recommendations section */
 @media (max-width: 768px) {
   .recommendation-controls {
     flex-direction: column;
@@ -800,7 +798,169 @@ header .search-bar-container label:hover {
   color: var(--orange);
 }
 
-/* media queries  */
+#form {
+  max-width: 500px;
+  margin: 30px auto 0;
+  display: flex;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+#form input[type="text"] {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#form input[type="text"]:focus {
+  border-color: #4d90fe;
+  box-shadow: 0 2px 12px rgba(77, 144, 254, 0.2);
+}
+
+#form button {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #4d90fe 0%, #357ae8 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.weather-city {
+  text-transform: none;
+}
+
+.weather-error {
+  font-size: 20px;
+}
+
+#form button:hover {
+  background: linear-gradient(135deg, #357ae8 0%, #2d6bd6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#form button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-container {
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.weather-full-width {
+  flex: 1 1 100%;
+  margin: 3rem auto;
+}
+
+.weather-wrapper {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  grid-column: 1 / -1;
+  margin-top: 2rem;
+}
+
+#weather {
+  width: 100%;
+  max-width: 800px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%);
+  border-radius: 15px;
+  padding: 20px;
+  color: #2c3e50;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: calc(3 * 30rem + 2 * 2rem + 220px);
+  margin: 0 auto;
+}
+
+.weather-full-width {
+  flex: 1 1 100%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.box-container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.weather-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.weather-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+.heading1 {
+  text-align: center;
+  padding: 90px 0 40px;
+}
+
+.heading1 span {
+  font-size: 3.5rem;
+  background: rgba(255, 165, 0, 0.2);
+  color: var(--orange);
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+}
+
+.heading1 span.space {
+  background: none;
+}
+
+.weather-location {
+  text-transform: none;
+  font-size: 14px;
+}
+
+.weather-desc {
+  text-transform: none;
+}
+
+.weather-header {
+  font-size: 30px;
+  text-transform: none;
+}
 
 @media (max-width: 1200px) {
   html {

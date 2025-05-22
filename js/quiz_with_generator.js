@@ -14,7 +14,6 @@ const proxy = new AuthProxy(new CoreApiService(), {
   },
 });
 
-/* Квіз */
 const questions = [
   {
     question: 'Який тип локації вам ближчий?',
@@ -85,15 +84,14 @@ let currentIndex = 0;
 let currentQuestionIndex = 0;
 const restartBtn = document.getElementById('restart-btn');
 
+// Task 1:
 // Task 1.1:
-// Cyclic question generator
 function* questionGenerator() {
   for (let i = 0; i < questions.length; i++) {
     yield questions[i];
   }
 }
 
-//Incremental counter generator
 function* numberGenerator(number = 1) {
   while (true) {
     yield number++;
@@ -333,7 +331,8 @@ const recommendTripLogged = log({
   profile: true,
 })(recommendTrip);
 
-// task 3
+
+// Task 3:
 function memoize(
   fn,
   {
